@@ -65,7 +65,7 @@ with st.sidebar:
 if selected=='Home':
     home()  #function made in home.py
     expander_faq = st.expander("More About Our Project")
-    expander_faq.write("Hi there! If you have any questions about our project, or simply want to check out the source code, please visit our github repo: https://github.com/robertklee/COCO-Human-Pose")
+    expander_faq.write("Hi there! If you have any questions about our project, or simply want to check out the source code, please visit our github repo: https://github.com/Shubhmeep/The-Yoga-Guru.git")
 
 
 
@@ -309,28 +309,28 @@ else:
         st.sidebar.write(" ------ ")
         st.subheader("We are NUtons !!")
         first_column, second_column, third_column, forth_column,  = st.columns(4)
-        first_column.image(os.path.join('meet_team/shubh.jpeg'),    use_column_width = True, caption = "Shubh Sehgal")
+        first_column.image(os.path.join('meet_team/shubh.jpeg'),    use_column_width = True, caption = "Shubh Sehgal ")
         second_column.image(os.path.join('meet_team/manu.jpeg'),    use_column_width = True, caption = "Manu Gupta")
-        third_column.image(os.path.join('meet_team/WhatsApp Image 2022-04-22 at 3.57.55 PM.jpeg'),      use_column_width = True, caption = "Piyush Kalyani")
+        third_column.image(os.path.join('meet_team/WhatsApp Image 2022-04-22 at 3.57.55 PM.jpeg'),  use_column_width = True, caption = "Piyush Kalyani")
+        forth_column.image(os.path.join('meet_team/ayush.jpg'),  use_column_width = True, caption = "Aayush Pandey")
       
       
        
       
     
 
-        # st.sidebar.write('Please feel free to connect with us on Linkedin!')
-        # st.sidebar.success('Hope you had a great time :)')
+        st.sidebar.write('Please feel free to connect with us')
+        st.sidebar.success('Hope you had a great time :)')
 
-        # expandar_linkedin = st.expander('Contact Information')
-        # expandar_linkedin.write('Robert: https://www.linkedin.com/in/robert-k-lee/')
-        # expandar_linkedin.write('Julian: https://www.linkedin.com/in/julianrocha/')
-        # expandar_linkedin.write('Wanze: https://www.linkedin.com/in/wanze-zhang-59320b137/')
-        # expandar_linkedin.write('Nicole: https://www.linkedin.com/in/nicole-peverley-64181316a/')
-        # expandar_linkedin.write('Rafay: https://www.linkedin.com/in/rafay-chaudhy')
-        # expandar_linkedin.write('Corey: https://www.linkedin.com/in/corey-koelewyn-5b45061ab')
+        expandar_linkedin = st.expander('Contact Information')
+        expandar_linkedin.write('Shubh: shubh.sehgal2506@gmail.com')
+        expandar_linkedin.write('Manu: manu.gupta19@st.niituniversity.in')
+        expandar_linkedin.write('Piyush: piyush.kalyani19@st.niituniversity.in')
+        expandar_linkedin.write('Aayush: aayush.pandey19@st.niituniversity.in')
+       
 
         expander_faq = st.expander("More About Our Project")
-        expander_faq.write("Hi there! If you have any questions about our project, or simply want to check out the source code, please visit our github repo: https://github.com/robertklee/COCO-Human-Pose")
+        expander_faq.write("Hi there! If you have any questions about our project, or simply want to check out the source code, please visit our github repo: https://github.com/Shubhmeep/The-Yoga-Guru.git")
 
 
 
