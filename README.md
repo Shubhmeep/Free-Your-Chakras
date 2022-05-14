@@ -14,10 +14,13 @@ Our study aims to develop an efficient yoga posture detection application for ch
 
 ## Methodology
 ![image](https://user-images.githubusercontent.com/97219802/168430561-32b925e4-bfe8-4828-abc7-1a6b8d9e6d3d.png)
-  ## Demo Video
+ 
+## Demo Video
  
 
 https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-bc37-3aa9a5a5011d.mp4
 
-
-  
+## Check out our project
+link :
+https://share.streamlit.io/piyushk2000/yoga/app.py
+### Note : this is the deployed version without the "take snapshot" feature. to see how that feature works please refer to the video attached above.
