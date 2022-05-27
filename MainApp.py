@@ -9,6 +9,7 @@ from SetuBandhAsana import *
 from PadahastAsana import *
 from BhujangAsana import *
 from ArdhChakrAsana import *
+import threading 
 
 #loading the holistic model into our code
 mp_drawing = mp.solutions.drawing_utils

@@ -1,4 +1,6 @@
 from libraries import *
+import time
+from time import sleep
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
@@ -196,8 +198,19 @@ def PadahastAsanaPicture():
             ctx = webrtc_streamer(
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
+            Mytimer =st.slider('timer input', 15, 120, 30)
+
             if ctx.video_transformer:
                 if st.button("Snapshot"):
+
+                    
+                    ph = st.empty()
+                    N = Mytimer
+                    for secs in range(N,0,-1):
+                        mm, ss = secs//60, secs%60
+                        ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
+                        time.sleep(1)
+                    sleep(Mytimer-15)
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
                         out_image = ctx.video_transformer.out_image
