@@ -77,7 +77,8 @@ if selected=='Home':
 elif selected=='result':
     result = view_all_data()
     # st.write(result)
-    clean_df = pd.DataFrame(result,columns=["Name","Accuracy","Status","asan","Date","Input by"])
+    st.info('All your previous results are recorded here')
+    clean_df = pd.DataFrame(result,columns=["Name","Accuracy","Status","Asana","Date","Input by"])
     st.dataframe(clean_df)
     
 

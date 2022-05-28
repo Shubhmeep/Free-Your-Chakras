@@ -1,4 +1,4 @@
-# Free-Your-Chakras ⛹🧘
+# Free-Your-Chakras ⛹🧘🤸🏼‍♂️
 
 ![image](https://user-images.githubusercontent.com/97219802/168430354-4755f2d4-f1d0-4d63-a5c8-59d1d0328a0e.png)
 ## Introduction
@@ -14,6 +14,7 @@ Our study aims to develop an efficient yoga posture detection application for ch
 
 ## Methodology
 ![image](https://user-images.githubusercontent.com/97219802/168430561-32b925e4-bfe8-4828-abc7-1a6b8d9e6d3d.png)
+Entire code was written in Python. Made use of OpenCV for image processing, MediaPipe for keypoint detection and landmark extraction, Pandas for data handling, ScikitLearn for deploying machine learning models, Streamlit for hosting application and SQLlite for backend.
  
 ## Demo Video
  
