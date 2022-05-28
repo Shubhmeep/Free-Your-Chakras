@@ -33,7 +33,6 @@ def add_data(name,acuu,passFail,asan,inputby):
 
 
 def tadaAsanaImage():
-    inputby = "image upload"
     #drawing_spec = mp_drawing.DrawingSpec(thickness=2, circle_radius=1)
     st.sidebar.markdown('---')
 
@@ -65,6 +64,7 @@ def tadaAsanaImage():
 
     name = "TadaAsana"
     acc = []
+    inputby = "image upload"
 
     username = st.text_input('Full name')
 
@@ -124,7 +124,7 @@ def tadaAsanaImage():
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 60 %</h5>", unsafe_allow_html=True)
                 if st.button('add record'):
                     create_table()
-                    add_data(username,var,passfail,curruntasan,inputby)
+                    add_data(username,var,passfail,name,inputby)
                     st.success('sucessfully added the record')
 
             else:
@@ -297,6 +297,7 @@ def tadaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 60.0:
+                                        
                                         create_table()
                                         add_data(username,var,passfail,name,inputby)
                                         st.success('sucessfully added the record')

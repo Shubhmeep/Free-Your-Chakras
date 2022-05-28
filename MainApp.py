@@ -18,6 +18,8 @@ mp_holistic = mp.solutions.holistic
 #defining the demo image which will be displayed as default
 DEMO_IMAGE = 'demo.jpg'
 
+c = conn.cursor()
+
 def view_all_data():
 	c.execute('SELECT * FROM taskstable')
 	data = c.fetchall()

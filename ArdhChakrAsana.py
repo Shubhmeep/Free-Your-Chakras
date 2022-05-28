@@ -2,6 +2,7 @@ from libraries import *
 import time
 from time import sleep
 
+
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
@@ -9,6 +10,8 @@ with open('model.pkl', 'rb') as f:
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
 DEMO_IMAGE = 'demo.jpg'
+
+
 
 
 def ArdhChakrAsanaImage():
@@ -43,6 +46,9 @@ def ArdhChakrAsanaImage():
 
     name = "ArdhChakrAsana"
     acc = []
+
+    username = st.text_input('Full name')
+    inputby = "image upload"
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
@@ -88,13 +94,19 @@ def ArdhChakrAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
+                    passfail = 'perfromed sucessfully'
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Dhanurasana</h5>", unsafe_allow_html=True)
                 else:
+                    passfail='unsucessfull in performing'
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Dhanurasana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
+                if st.button('add record'):
+                    create_table()
+                    add_data(username,var,passfail,name,inputby)
+                    st.success('sucessfully added the record')
 
             else:
                 st.subheader(
@@ -171,6 +183,7 @@ def ArdhChakrAsanaVideo():
 def ArdhChakrAsanaPicture():
     name = "ArdhChakrAsana"
     acc = []
+    inputby="snapshot"
 
     def main():
             class VideoTransformer(VideoTransformerBase):
@@ -198,7 +211,11 @@ def ArdhChakrAsanaPicture():
 
             ctx = webrtc_streamer(
                 key="snapshot", video_transformer_factory=VideoTransformer)
+
+            
             Mytimer =st.slider('timer input', 15, 120, 30)
+
+            username = st.text_input('Full name')
 
             if ctx.video_transformer:
                 if st.button("Snapshot"):
@@ -210,7 +227,7 @@ def ArdhChakrAsanaPicture():
                         mm, ss = secs//60, secs%60
                         ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
                         time.sleep(1)
-                    sleep(Mytimer-15)
+                    
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
                         out_image = ctx.video_transformer.out_image
@@ -236,6 +253,7 @@ def ArdhChakrAsanaPicture():
                                         mp_drawing.DrawingSpec(
                                             color=(245, 66, 230), thickness=2, circle_radius=2)
                                                       )
+                            
                             try:
                                 pose = results.pose_landmarks.landmark
                                 pose_row = list(np.array(
@@ -256,15 +274,27 @@ def ArdhChakrAsanaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 45.0:
+                                        passfail="sucessfull"
+                                        create_table()
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Dhanurasana</h5>", unsafe_allow_html=True)
                                     else:
+                                        passfail="unsucessfull"
+                                        create_table()
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> You have failed in performing Dhanurasana</h5>", unsafe_allow_html=True)
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
 
                                 else:
+                                    passfail="unsucessfull"
+                                    create_table()
+                                    add_data(username,0,passfail,name,inputby)
+                                    st.success('sucessfully added the record')
                                     st.subheader(
                                         f'You are currently not performing Dhanurasana')
 
