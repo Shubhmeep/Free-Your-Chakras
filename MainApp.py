@@ -18,6 +18,10 @@ mp_holistic = mp.solutions.holistic
 #defining the demo image which will be displayed as default
 DEMO_IMAGE = 'demo.jpg'
 
+def view_all_data():
+	c.execute('SELECT * FROM taskstable')
+	data = c.fetchall()
+	return data
 
 #resizing the images
 @st.cache()
@@ -56,8 +60,8 @@ def image_resize(image, width=None, height=None, inter=cv2.INTER_AREA):
 with st.sidebar:
     selected = option_menu(
         menu_title="Free Your Chakras",
-        options=["Home","Yoga Pose Grading","Meet the team"],
-        icons=["house","bar-chart","person"],
+        options=["Home","Yoga Pose Grading","Meet the team","result"],
+        icons=["house","bar-chart","person","bar-chart"],
         menu_icon='cast'
 
     )
@@ -67,6 +71,13 @@ if selected=='Home':
     home()  #function made in home.py
     expander_faq = st.expander("More About Our Project")
     expander_faq.write("Hi there! If you have any questions about our project, or simply want to check out the source code, please visit our github repo: https://github.com/Shubhmeep/The-Yoga-Guru.git")
+
+elif selected=='result':
+    result = view_all_data()
+    # st.write(result)
+    clean_df = pd.DataFrame(result,columns=["Name","Accuracy","Status","asan","Date","Input by"])
+    st.dataframe(clean_df)
+    
 
 
 

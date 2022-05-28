@@ -1,6 +1,12 @@
+from distutils.command.upload import upload
 from libraries import *
 import time
 from time import sleep
+import sqlite3
+from datetime import date
+
+conn = sqlite3.connect('data.db',check_same_thread=False)
+
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
@@ -10,7 +16,24 @@ mp_holistic = mp.solutions.holistic
 DEMO_IMAGE = 'demo.jpg'
 
 
+
+c = conn.cursor()
+def create_table():
+	c.execute('CREATE TABLE IF NOT EXISTS taskstable(name TEXT,acuu TEXT,passFail TEXT,asan TEXT,date DATE,inputby)')
+
+def add_data(name,acuu,passFail,asan,inputby):
+
+	c.execute('INSERT INTO taskstable(name,acuu,passFail,asan,date,inputby) VALUES (?,?,?,?,?,?)',(name,acuu,passFail,asan,date.today(),inputby))
+	conn.commit()
+
+# def view_all_data():
+# 	c.execute('SELECT * FROM taskstable')
+# 	data = c.fetchall()
+# 	return data
+
+
 def tadaAsanaImage():
+    inputby = "image upload"
     #drawing_spec = mp_drawing.DrawingSpec(thickness=2, circle_radius=1)
     st.sidebar.markdown('---')
 
@@ -42,6 +65,8 @@ def tadaAsanaImage():
 
     name = "TadaAsana"
     acc = []
+
+    username = st.text_input('Full name')
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
@@ -76,6 +101,7 @@ def tadaAsanaImage():
             X = pd.DataFrame([row])
             body_language_class = model.predict(X)[0]
             body_language_prob = model.predict_proba(X)[0]
+            curruntasan = 'TadaAsana'
               # print(body_language_class, body_language_prob)
             if body_language_class == name:
                 acc.append(
@@ -91,13 +117,19 @@ def tadaAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
+                    passfail='perfromed sucessfully'
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Tada Asana</h5>", unsafe_allow_html=True)
                 else:
+                    passfail='unsucessfull in performing'
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Tada Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 60 %</h5>", unsafe_allow_html=True)
+                if st.button('add record'):
+                    create_table()
+                    add_data(username,var,passfail,curruntasan,inputby)
+                    st.success('sucessfully added the record')
 
             else:
                 st.subheader(
@@ -174,6 +206,9 @@ def tadaVideo():
 def tadaPicture():
     name = "TadaAsana"
     acc = []
+    inputby="snapshot"
+  
+    
 
     def main():
             class VideoTransformer(VideoTransformerBase):
@@ -202,6 +237,8 @@ def tadaPicture():
             ctx = webrtc_streamer(
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
+            username = st.text_input('Full name')
+
             Mytimer =st.slider('timer input', 15, 120, 30)
 
             if ctx.video_transformer:
@@ -214,7 +251,7 @@ def tadaPicture():
                         mm, ss = secs//60, secs%60
                         ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
                         time.sleep(1)
-                    sleep(Mytimer-15)
+                    # # sleep(Mytimer-15)
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
                         out_image = ctx.video_transformer.out_image
@@ -240,6 +277,10 @@ def tadaPicture():
                                         mp_drawing.DrawingSpec(
                                             color=(245, 66, 230), thickness=2, circle_radius=2)
                                                       )
+
+
+                            st.subheader('Output Image')
+                            st.image(out_image, channels="BGR", use_column_width=True)
                             try:
                                 pose = results.pose_landmarks.landmark
                                 pose_row = list(np.array(
@@ -260,22 +301,39 @@ def tadaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 60.0:
+                                        create_table()
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')
+                                        passfail="sucessfull"
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Tada Asana</h5>", unsafe_allow_html=True)
+
                                     else:
+                                        passfail="unsucessfull"
+                                        create_table()
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> You have failed in performing Tada Asana</h5>", unsafe_allow_html=True)
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 60 %</h5>", unsafe_allow_html=True)
 
+
+
                                 else:
+                                    passfail="unsucessfull"
+                                    create_table()
+                                    add_data(username,0,passfail,name,inputby)
+                                    st.success('sucessfully added the record')
                                     st.subheader(
                                         f'You are currently not performing Tada Asana')
 
                             except:
                                 pass
 
-                        st.image(out_image, channels="BGR")
+                        # st.image(out_image, channels="BGR")
+
+
                     else:
                         st.warning("No frames available yet.")
 
