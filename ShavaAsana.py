@@ -284,10 +284,10 @@ def shavaPicture():
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 60 %</h5>", unsafe_allow_html=True)
 
                                 else:
-                                    # passfail="unsucessfull"###########
-                                    # create_table()########
-                                    # add_data(username,0,passfail,name,inputby)##############
-                                    # st.success('sucessfully added the record')#
+                                    passfail="unsucessfull"###########
+                                    create_table()########
+                                    add_data(username,0,passfail,name,inputby)##############
+                                    st.success('sucessfully added the record')#
                                     st.subheader(
                                         f'You are currently not performing Shava Asana')
 
