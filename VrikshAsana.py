@@ -208,6 +208,7 @@ def treePicture():
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
             Mytimer =st.slider('timer input', 15, 120, 30)
+            username = st.text_input('Full name')
 
             if ctx.video_transformer:
                 if st.button("Snapshot"):
@@ -219,7 +220,7 @@ def treePicture():
                         mm, ss = secs//60, secs%60
                         ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
                         time.sleep(1)
-                    sleep(Mytimer-15)
+               
                     
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
@@ -266,6 +267,10 @@ def treePicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 45.0:
+                                        passfail="sucessfull"########################################
+                                        create_table()#################################
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')#############
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Vriksha Asana</h5>", unsafe_allow_html=True)
                                     else:
