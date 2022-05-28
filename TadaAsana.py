@@ -83,6 +83,10 @@ def tadaAsanaImage():
                 for i in acc:
                     var = i
 
+                
+                if st.button('add record'):
+                    st.success(f'successfully added your accuracy = {var} in the Database')
+
                 st.markdown(
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
