@@ -99,7 +99,10 @@ def treeAsanaImage():
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Vriksha Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
-
+                if st.button('add record'):  #################################
+                    create_table()
+                    add_data(username,var,passfail,name,inputby)
+                    st.success('sucessfully added the record')
             else:
                 st.subheader(
                     f'You are currently not performing Vriksha Asana')
@@ -175,6 +178,7 @@ def treeVideo():
 def treePicture():
     name = "VrikshAsana"
     acc = []
+    inputby="snapshot"  ######################
 
     def main():
             class VideoTransformer(VideoTransformerBase):
