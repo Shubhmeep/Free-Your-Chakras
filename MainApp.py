@@ -63,7 +63,7 @@ with st.sidebar:
     selected = option_menu(
         menu_title="Free Your Chakras",
         options=["Home","Yoga Pose Grading","result","Meet the team",],
-        icons=["house","bar-chart","person","bar-chart"],
+        icons=["house","bar-chart","bar-chart","person"],
         menu_icon='cast'
 
     )
