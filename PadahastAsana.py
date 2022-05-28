@@ -42,6 +42,9 @@ def PadahastAsanaImage():
 
     name = "PadahastAsana"
     acc = []
+    
+    username = st.text_input('Full name')  #################################
+    inputby = "image upload" ##################################
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
@@ -87,13 +90,19 @@ def PadahastAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
+                    passfail = 'perfromed sucessfully'
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Padahast Asana</h5>", unsafe_allow_html=True)
                 else:
+                    passfail='unsucessfull in performing' 
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Padahast Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 60 %</h5>", unsafe_allow_html=True)
+                if st.button('add record'):  #################################
+                    create_table()
+                    add_data(username,var,passfail,name,inputby)
+                    st.success('sucessfully added the record')
 
             else:
                 st.subheader(
