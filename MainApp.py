@@ -90,7 +90,7 @@ elif selected=='Yoga Pose Grading':
     ['Tada Asana','Vriksha Asana','Trikona Asana','Shava Asana','SetuBandh Asana','Padahast Asana','Bhujanga Asana','Dhanur Asana'],)
 
     detection_mode = st.sidebar.selectbox('Grade through ',
-        ['Image','Take Snapshot','Practise on real time webcam'])
+        ['Image','Take Picture','Real Time Webcam'])
 
 
     if app_mode =='Tada Asana':
@@ -272,8 +272,6 @@ elif selected=='Yoga Pose Grading':
             st.sidebar.info('PRIVACY POLICY: uploaded images are never saved or stored. They are held entirely within memory for prediction \
                         and discarded after the final results are displayed. ')
 
-
-            
 
         if detection_mode == "Real Time Webcam":
             BhujangAsanaVideo()  #function in TadaAsana.py

@@ -90,11 +90,11 @@ def BhujangAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
-                    passfail = 'perfromed sucessfully'
+                    passfail = 'performed successfully'
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Bhujang Asana</h5>", unsafe_allow_html=True)
                 else:
-                    passfail='unsucessfull in performing'
+                    passfail='unsuccessfull in performing'
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Bhujang Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
@@ -103,7 +103,7 @@ def BhujangAsanaImage():
                 if st.button('add record'):  #################################
                     create_table()
                     add_data(username,var,passfail,name,inputby)
-                    st.success('sucessfully added the record')
+                    st.success('successfully added the record')
 
             else:
                 st.subheader(
@@ -271,27 +271,27 @@ def BhujangAsanaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 45.0:
-                                        passfail="sucessfull"########################################
+                                        passfail="successfull"########################################
                                         create_table()#################################
                                         add_data(username,var,passfail,name,inputby)
-                                        st.success('sucessfully added the record')#############
+                                        st.success('successfully added the record')#############
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Bhujang Asana</h5>", unsafe_allow_html=True)
                                     else:
-                                        passfail="unsucessfull"##################
+                                        passfail="unsuccessfull"##################
                                         create_table()#############
                                         add_data(username,var,passfail,name,inputby)###########
-                                        st.success('sucessfully added the record')
+                                        st.success('successfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> You have failed in performing Bhujang Asana</h5>", unsafe_allow_html=True)
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
 
                                 else:
-                                    passfail="unsucessfull"###########
+                                    passfail="unsuccessfull"###########
                                     create_table()########
                                     add_data(username,0,passfail,name,inputby)##############
-                                    st.success('sucessfully added the record')##########
+                                    st.success('successfully added the record')##########
                                     st.subheader(
                                         f'You are currently not performing Bhujanga Asana')
 
