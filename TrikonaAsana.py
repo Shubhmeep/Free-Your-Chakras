@@ -178,6 +178,7 @@ def trikonaVideo():
 def trikonaPicture():
     name = "TrikonaAsana"
     acc = []
+    inputby="snapshot"  
 
     def main():
             class VideoTransformer(VideoTransformerBase):
@@ -207,6 +208,7 @@ def trikonaPicture():
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
             Mytimer =st.slider('timer input', 15, 120, 30)
+            username = st.text_input('Full name')
 
             if ctx.video_transformer:
                 if st.button("Snapshot"):
