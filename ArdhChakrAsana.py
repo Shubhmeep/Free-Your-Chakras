@@ -94,16 +94,16 @@ def ArdhChakrAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
-                    passfail = 'perfromed sucessfully'
+                    passfail = 'perfromed sucessfully'  #############################
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Dhanurasana</h5>", unsafe_allow_html=True)
                 else:
-                    passfail='unsucessfull in performing'
+                    passfail='unsucessfull in performing'    #############################
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Dhanurasana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
-                if st.button('add record'):
+                if st.button('add record'):  #################################
                     create_table()
                     add_data(username,var,passfail,name,inputby)
                     st.success('sucessfully added the record')
@@ -183,7 +183,7 @@ def ArdhChakrAsanaVideo():
 def ArdhChakrAsanaPicture():
     name = "ArdhChakrAsana"
     acc = []
-    inputby="snapshot"
+    inputby="snapshot"  ######################
 
     def main():
             class VideoTransformer(VideoTransformerBase):
@@ -213,9 +213,9 @@ def ArdhChakrAsanaPicture():
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
             
-            Mytimer =st.slider('timer input', 15, 120, 30)
+            Mytimer =st.slider('timer input', 15, 120, 30)####################################
 
-            username = st.text_input('Full name')
+            username = st.text_input('Full name')###################################
 
             if ctx.video_transformer:
                 if st.button("Snapshot"):
@@ -226,7 +226,7 @@ def ArdhChakrAsanaPicture():
                     for secs in range(N,0,-1):
                         mm, ss = secs//60, secs%60
                         ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
-                        time.sleep(1)
+                        time.sleep(1) ###############################
                     
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
@@ -274,16 +274,16 @@ def ArdhChakrAsanaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 45.0:
-                                        passfail="sucessfull"
-                                        create_table()
+                                        passfail="sucessfull"########################################
+                                        create_table()#################################
                                         add_data(username,var,passfail,name,inputby)
-                                        st.success('sucessfully added the record')
+                                        st.success('sucessfully added the record')#############
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Dhanurasana</h5>", unsafe_allow_html=True)
                                     else:
-                                        passfail="unsucessfull"
-                                        create_table()
-                                        add_data(username,var,passfail,name,inputby)
+                                        passfail="unsucessfull"##################
+                                        create_table()#############
+                                        add_data(username,var,passfail,name,inputby)###########
                                         st.success('sucessfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> You have failed in performing Dhanurasana</h5>", unsafe_allow_html=True)
@@ -291,10 +291,10 @@ def ArdhChakrAsanaPicture():
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
 
                                 else:
-                                    passfail="unsucessfull"
-                                    create_table()
-                                    add_data(username,0,passfail,name,inputby)
-                                    st.success('sucessfully added the record')
+                                    passfail="unsucessfull"###########
+                                    create_table()########
+                                    add_data(username,0,passfail,name,inputby)##############
+                                    st.success('sucessfully added the record')##########
                                     st.subheader(
                                         f'You are currently not performing Dhanurasana')
 
