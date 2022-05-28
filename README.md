@@ -1,4 +1,4 @@
-# Free-Your-Chakras ⛹🧘
+# Free-Your-Chakras ⛹🧘🤸🏼‍♂️
 
 ![image](https://user-images.githubusercontent.com/97219802/168430354-4755f2d4-f1d0-4d63-a5c8-59d1d0328a0e.png)
 ## Introduction
