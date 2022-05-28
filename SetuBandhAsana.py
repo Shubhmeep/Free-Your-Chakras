@@ -42,7 +42,8 @@ def SetuBandhAsanaImage():
 
     name = "SetuBandhAsana"
     acc = []
-
+    username = st.text_input('Full name')  #################################
+    inputby = "image upload" ##################################
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
                               min_tracking_confidence=0.6) as holistic:
@@ -87,13 +88,19 @@ def SetuBandhAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 45.0:
+                    passfail = 'perfromed sucessfully'
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed SetuBandh Asana</h5>", unsafe_allow_html=True)
                 else:
+                    passfail='unsucessfull in performing' 
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing SetuBandh Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
+                if st.button('add record'):  #################################
+                    create_table()
+                    add_data(username,var,passfail,name,inputby)
+                    st.success('sucessfully added the record')
 
             else:
                 st.subheader(
@@ -170,6 +177,8 @@ def SetuBandhAsanaVideo():
 def SetuBandhAsanaPicture():
     name = "SetuBandhAsana"
     acc = []
+    inputby="snapshot"  ######################
+
 
     def main():
             class VideoTransformer(VideoTransformerBase):
@@ -198,7 +207,9 @@ def SetuBandhAsanaPicture():
             ctx = webrtc_streamer(
                 key="snapshot", video_transformer_factory=VideoTransformer)
 
-            Mytimer =st.slider('timer input', 15, 120, 30)
+            Mytimer =st.slider('timer input', 15, 120, 30)####################################
+
+            username = st.text_input('Full name')
 
             if ctx.video_transformer:
                 if st.button("Snapshot"):
@@ -210,7 +221,7 @@ def SetuBandhAsanaPicture():
                         mm, ss = secs//60, secs%60
                         ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
                         time.sleep(1)
-                    sleep(Mytimer-15)
+               
                     
                     with ctx.video_transformer.frame_lock:
                         in_image = ctx.video_transformer.in_image
@@ -257,15 +268,24 @@ def SetuBandhAsanaPicture():
                                         f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                                     if float(var) > 45.0:
+                                        passfail="sucessfull"########################################
+                                        create_table()#################################
+                                        add_data(username,var,passfail,name,inputby)
+                                        st.success('sucessfully added the record')#############
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed SetuBandh Asana</h5>", unsafe_allow_html=True)
                                     else:
+                                        passfail="unsucessfull"##################
+                                        create_table()#############
+                                        add_data(username,var,passfail,name,inputby)###########
+                                        st.success('sucessfully added the record')
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> You have failed in performing SetuBandh Asana</h5>", unsafe_allow_html=True)
                                         st.markdown(
                                             "<h5 style='text-align: left; color: red;'> Try getting and Accuracy score > 45 %</h5>", unsafe_allow_html=True)
 
                                 else:
+                                    
                                     st.subheader(
                                         f'You are currently not performing SetuBandh Asana')
 
