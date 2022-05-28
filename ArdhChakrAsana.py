@@ -47,8 +47,8 @@ def ArdhChakrAsanaImage():
     name = "ArdhChakrAsana"
     acc = []
 
-    username = st.text_input('Full name')
-    inputby = "image upload"
+    username = st.text_input('Full name')  #################################
+    inputby = "image upload" ##################################
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
