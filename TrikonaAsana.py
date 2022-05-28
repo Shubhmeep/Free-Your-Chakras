@@ -43,6 +43,8 @@ def trikonaAsanaImage():
 
     name = "TrikonaAsana"
     acc = []
+    username = st.text_input('Full name')  #################################
+    inputby = "image upload" ##################################
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
@@ -88,6 +90,7 @@ def trikonaAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 60.0:
+                    passfail = 'perfromed sucessfully' 
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Trikona Asana</h5>", unsafe_allow_html=True)
                 else:
