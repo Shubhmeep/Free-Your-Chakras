@@ -62,7 +62,7 @@ def image_resize(image, width=None, height=None, inter=cv2.INTER_AREA):
 with st.sidebar:
     selected = option_menu(
         menu_title="Free Your Chakras",
-        options=["Home","Yoga Pose Grading","Meet the team","result"],
+        options=["Home","Yoga Pose Grading","result","Meet the team",],
         icons=["house","bar-chart","person","bar-chart"],
         menu_icon='cast'
 
@@ -90,7 +90,7 @@ elif selected=='Yoga Pose Grading':
     ['Tada Asana','Vriksha Asana','Trikona Asana','Shava Asana','SetuBandh Asana','Padahast Asana','Bhujanga Asana','Dhanur Asana'],)
 
     detection_mode = st.sidebar.selectbox('Grade through ',
-        ['Image','Take Picture','Real Time Webcam'])
+        ['Image','Take Snapshot','Practise on real time webcam'])
 
 
     if app_mode =='Tada Asana':
