@@ -43,6 +43,8 @@ def treeAsanaImage():
 
     name = "VrikshAsana"
     acc = []
+    username = st.text_input('Full name')  #################################
+    inputby = "image upload" ##################################
 
     with mp_holistic.Holistic(static_image_mode=True,
                               min_detection_confidence=0.6,
@@ -88,9 +90,11 @@ def treeAsanaImage():
                     f"<h5 style='text-align: left; color: white;'>Accuracy Score : {var} %</h5>", unsafe_allow_html=True)
 
                 if float(var) > 45.0:
+                    passfail = 'perfromed sucessfully' 
                     st.markdown(
                         "<h5 style='text-align: left; color: green;'> You have Successfully performed Vriksha Asana</h5>", unsafe_allow_html=True)
                 else:
+                    passfail='unsucessfull in performing'
                     st.markdown(
                         "<h5 style='text-align: left; color: red;'> You have failed in performing Vriksha Asana</h5>", unsafe_allow_html=True)
                     st.markdown(
