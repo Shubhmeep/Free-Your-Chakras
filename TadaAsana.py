@@ -64,7 +64,7 @@ def tadaAsanaImage():
 
     name = "TadaAsana"
     acc = []
-    # inputby = "image upload"
+    inputby = "image upload"
 
     username = st.text_input('Full name')
 
