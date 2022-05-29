@@ -300,8 +300,8 @@ def tadaPicture():
                                         
                                         create_table()
                                         add_data(username,var,passfail,name,inputby)
-                                        st.success('sucessfully added the record')
-                                        passfail="sucessfull"
+                                        st.success('successfully added the record')
+                                        passfail="successfull"
                                         st.markdown(
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Tada Asana</h5>", unsafe_allow_html=True)
 
@@ -321,9 +321,9 @@ def tadaPicture():
                                     passfail="unsuccessfull"
                                     create_table()
                                     add_data(username,0,passfail,name,inputby)
-                                    st.success('sucessfully added the record')
+                                    st.success('successfully added the record')
                                     st.subheader(
-                                        f'You are currently not performing Tada Asana')
+                                        f'You are currently not performing TadaAsana')
 
                             except:
                                 pass
