@@ -306,7 +306,7 @@ def tadaPicture():
                                             "<h5 style='text-align: left; color: green;'> You have Successfully performed Tada Asana</h5>", unsafe_allow_html=True)
 
                                     else:
-                                        passfail="unsucessfull"
+                                        passfail="unsuccessfull"
                                         create_table()
                                         add_data(username,var,passfail,name,inputby)
                                         st.success('sucessfully added the record')
@@ -318,7 +318,7 @@ def tadaPicture():
 
 
                                 else:
-                                    passfail="unsucessfull"
+                                    passfail="unsuccessfull"
                                     create_table()
                                     add_data(username,0,passfail,name,inputby)
                                     st.success('sucessfully added the record')
