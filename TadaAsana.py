@@ -31,7 +31,7 @@ def add_data(name,acuu,passFail,asan,inputby):
 # 	data = c.fetchall()
 # 	return data
 
-
+# TadaAsana
 def tadaAsanaImage():
     #drawing_spec = mp_drawing.DrawingSpec(thickness=2, circle_radius=1)
     st.sidebar.markdown('---')
