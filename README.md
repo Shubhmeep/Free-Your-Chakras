@@ -17,10 +17,12 @@ Our study aims to develop an efficient yoga posture detection application for ch
 Entire code was written in Python. Made use of OpenCV for image processing, MediaPipe for keypoint detection and landmark extraction, Pandas for data handling, ScikitLearn for deploying machine learning models, Streamlit for hosting application and SQLlite for backend.
  
 ## Demo Video
- 
+
+### Feature - 1 and 2 implemented
 
 https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-bc37-3aa9a5a5011d.mp4
 
+### Feature - 3 implemented
 ## Check out our project
 link :
 https://share.streamlit.io/piyushk2000/yoga/app.py
