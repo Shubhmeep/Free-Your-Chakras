@@ -23,6 +23,10 @@ Entire code was written in Python. Made use of OpenCV for image processing, Medi
 https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-bc37-3aa9a5a5011d.mp4
 
 ### Feature - 3 implemented
+[streamlit-MainApp-2022-07-05-22-07-25.webm](https://user-images.githubusercontent.com/97219802/177381769-b8a01d8b-fbc7-4fd3-942d-6c1d04e0bec7.webm)
+
+
+
 ## Check out our project
 link :
 https://share.streamlit.io/piyushk2000/yoga/app.py
