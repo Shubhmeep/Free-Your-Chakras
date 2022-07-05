@@ -1,4 +1,4 @@
-# Free-Your-Chakras ⛹🧘🤸🏼‍♂️
+# The-Yoga-Guru ⛹🧘🤸🏼‍♂️
 
 ![image](https://user-images.githubusercontent.com/97219802/168430354-4755f2d4-f1d0-4d63-a5c8-59d1d0328a0e.png)
 ## Introduction
@@ -28,6 +28,9 @@ https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-
 
 
 ## Check out our project
-link :
+Project Report link : https://online.fliphtml5.com/vaqnn/smtu/
+
+
+Prototype Deployed link :
 https://share.streamlit.io/piyushk2000/yoga/app.py
 ### Note : this is the deployed version without the "take snapshot" and "Live webcam" feature. to see how that feature works please refer to the video attached above.
