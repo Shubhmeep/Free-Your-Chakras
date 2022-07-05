@@ -30,4 +30,4 @@ https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-
 ## Check out our project
 link :
 https://share.streamlit.io/piyushk2000/yoga/app.py
-### Note : this is the deployed version without the "take snapshot" feature. to see how that feature works please refer to the video attached above.
+### Note : this is the deployed version without the "take snapshot" and "Live webcam" feature. to see how that feature works please refer to the video attached above.
