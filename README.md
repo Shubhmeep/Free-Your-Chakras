@@ -30,7 +30,6 @@ https://user-images.githubusercontent.com/97219802/168435002-5557feff-4b8a-4e0a-
 ## Check out our project
 Project Report link : https://online.fliphtml5.com/vaqnn/smtu/
 or
-
 [Research Project Report.pdf](https://github.com/Shubhmeep/The-Yoga-Guru/files/9049232/Research.Project.Report.pdf)
 
 
